@@ -1,0 +1,36 @@
+server:
+  port: 9001
+spring:
+  application:
+    name: smartOrchard
+    # 数据库配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/guoyuan?characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useUnicode=true&useSSL=false&serverTimezone=GMT%2B8
+    #url: jdbc:mysql://192.168.131.23:3306/guoyuan?characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useUnicode=true&useSSL=false&serverTimezone=GMT%2B8
+    username: root
+    password: 123456
+    # redis配置
+  redis:
+    host: 127.0.0.1
+    #host: 192.168.131.23
+    port: 6379
+    # 2.6以上boot配置
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+      # 全局日期格式
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+#mybatis-plus配置
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  type-aliases-package: com.hz.smartorchard.entity
+  global-config:
+    db-config:
+      logic-delete-field: isDelete
+      logic-not-delete-value: 1
+      id-type: assign_uuid
