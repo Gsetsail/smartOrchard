@@ -12,9 +12,10 @@ spring:
     password: 123456
     # redis配置
   redis:
-    host: 127.0.0.1
-    #host: 192.168.131.23
+    #host: 127.0.0.1
+    host: 192.168.131.23
     port: 6379
+    password: 123456
     # 2.6以上boot配置
   mvc:
     pathmatch:
